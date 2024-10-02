@@ -29,17 +29,17 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                 "http://localhost:3000/assistant",
                 {
                     userInput: userInput,
-                    currentThreadId: getThreadId || null, // Send the current threadId if available
+                    currentThreadId: getThreadId() || null, // Send the current threadId if available
                 }
             );
 
-            const { messages, threadId: newThreadId } = response.data;
+            const { reply, threadId: newThreadId } = response.data;
 
             // For each message from the bot, add it to the chat
             // messages.forEach((message) => {
             //     const botMessage = this.createChatBotMessage(message.content);
             // });
-            const botMessage = this.createChatBotMessage(messages[0].content);
+            const botMessage = createChatBotMessage(reply);
             setState((prev) => ({
                 ...prev,
                 messages: [...prev.messages, botMessage],
