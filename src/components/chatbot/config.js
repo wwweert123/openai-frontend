@@ -1,4 +1,5 @@
 import { createChatBotMessage } from "react-chatbot-kit";
+import CatPicture from "./CatPicture";
 
 const config = {
     botName: "Assistant",
@@ -15,6 +16,12 @@ const config = {
             backgroundColor: "#5ccc9d",
         },
     },
+    widgets: [
+        {
+            widgetName: "catPicture",
+            widgetFunc: (props) => <CatPicture {...props} />,
+        },
+    ],
 };
 
 export default config;

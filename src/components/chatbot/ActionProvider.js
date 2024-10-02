@@ -52,6 +52,20 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         }
     };
 
+    const handleCat = () => {
+        const botMessage = createChatBotMessage(
+            "Here's a nice cat picture for you!",
+            {
+                widget: "catPicture",
+            }
+        );
+
+        setState((prev) => ({
+            ...prev,
+            messages: [...prev.messages, botMessage],
+        }));
+    };
+
     // Put the handleHello function in the actions object to pass to the MessageParser
     return (
         <div>
@@ -60,6 +74,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
                     actions: {
                         handleHello,
                         handleUserMessage,
+                        handleCat,
                     },
                 });
             })}

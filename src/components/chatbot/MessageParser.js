@@ -5,6 +5,8 @@ const MessageParser = ({ children, actions }) => {
     const parse = (message) => {
         if (message.includes("hello")) {
             actions.handleHello();
+        } else if (message.includes("cat")) {
+            actions.handleCat();
         } else if (message) {
             actions.handleUserMessage(message);
         }
