@@ -1,5 +1,21 @@
+import Chatbot from "react-chatbot-kit";
+import config from "./components/chatbot/config";
+import MessageParser from "./components/chatbot/MessageParser";
+import ActionProvider from "./components/chatbot/ActionProvider";
+import "./App.css";
+
 function App() {
-    return <div className="App"></div>;
+    return (
+        <div className="App">
+            <div style={{ maxWidth: "300px" }}>
+                <Chatbot
+                    config={config}
+                    actionProvider={ActionProvider}
+                    messageParser={MessageParser}
+                />
+            </div>
+        </div>
+    );
 }
 
 export default App;
