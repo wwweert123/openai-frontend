@@ -51,6 +51,16 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             // Optionally store the threadId for future use (e.g., localStorage)
             storeThreadId(newThreadId);
         } catch (error) {
+            const botMessage = createChatBotMessage(
+                "Slow Down! I am still processing the previous message!",
+                {
+                    widget: "catPicture",
+                }
+            );
+            setState((prev) => ({
+                ...prev,
+                messages: [...prev.messages, botMessage],
+            }));
             console.error("Error communicating with OpenAI Assistant", error);
         }
     };

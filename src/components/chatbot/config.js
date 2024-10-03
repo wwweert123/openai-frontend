@@ -23,6 +23,14 @@ const config = {
     // Use custom message component for bot messages
     customComponents: {
         botChatMessage: (props) => <MarkdownText {...props} />,
+        // Disable the input field when bot is processing
+        customInput: (props) => (
+            <input
+                type="text"
+                disabled={props.isBotProcessing} // Disable input based on state
+                placeholder="Write your message here..."
+            />
+        ),
     },
     widgets: [
         {
