@@ -1,5 +1,6 @@
 import { createChatBotMessage } from "react-chatbot-kit";
 import CatPicture from "./CatPicture";
+import MarkdownText from "../MarkDownText";
 
 const config = {
     botName: "Assistant",
@@ -18,6 +19,10 @@ const config = {
         chatButton: {
             backgroundColor: "#5ccc9d",
         },
+    },
+    // Use custom message component for bot messages
+    customComponents: {
+        botChatMessage: (props) => <MarkdownText {...props} />,
     },
     widgets: [
         {
