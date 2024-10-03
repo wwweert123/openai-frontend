@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import cat from "./cat.jpeg";
 
 const CatPicture = () => {
     // const [imageUrl, setImageUrl] = useState("");
@@ -15,7 +16,7 @@ const CatPicture = () => {
 
     return (
         <div>
-            <img src="public/cat.jpeg" alt="a cat" />
+            <img src={cat} alt="a cat" />
         </div>
     );
 };
