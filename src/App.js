@@ -8,7 +8,7 @@ import "react-chatbot-kit/build/main.css";
 function App() {
     return (
         <div className="App">
-            <div style={{ width: "25%" }}>
+            <div style={{ width: "75%" }}>
                 <Chatbot
                     config={config}
                     actionProvider={ActionProvider}

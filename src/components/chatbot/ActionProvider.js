@@ -4,6 +4,9 @@ import axios from "axios";
 
 // Store threadId for conversation continuity (you can use localStorage or state)
 const storeThreadId = (threadId) => {
+    if (!threadId) {
+        return;
+    }
     localStorage.setItem("threadId", threadId); // Storing the threadId for future messages
 };
 

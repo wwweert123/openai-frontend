@@ -11,6 +11,9 @@ const config = {
     customStyles: {
         botMessageBox: {
             backgroundColor: "#376B7E",
+            padding: "20px", // Increase padding for a larger message box
+            fontSize: "16px", // Increase font size
+            maxWidth: "80%", // Increase max width of the message box
         },
         chatButton: {
             backgroundColor: "#5ccc9d",
