@@ -1,9 +1,10 @@
 import { createChatBotMessage } from "react-chatbot-kit";
 import CatPicture from "./CatPicture";
 import MarkdownText from "../MarkDownText";
+import BotAvatar from "../BotAvatar";
 
 const config = {
-    botName: "Assistant",
+    botName: "OpenAI Cat Assistant",
     initialMessages: [
         createChatBotMessage(
             `Hi, I'm your assistant! How can I help you today?`
@@ -23,14 +24,7 @@ const config = {
     // Use custom message component for bot messages
     customComponents: {
         botChatMessage: (props) => <MarkdownText {...props} />,
-        // Disable the input field when bot is processing
-        customInput: (props) => (
-            <input
-                type="text"
-                disabled={props.isBotProcessing} // Disable input based on state
-                placeholder="Write your message here..."
-            />
-        ),
+        botAvatar: (props) => <BotAvatar {...props} />,
     },
     widgets: [
         {
