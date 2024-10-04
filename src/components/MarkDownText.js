@@ -1,9 +1,30 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import "react-chatbot-kit/build/main.css";
+import { useState, useEffect } from "react";
+
+// Function to handle typing effect with for loop
+const typeTextWithDelay = (message, setDisplayedText, typingSpeed) => {
+    for (let i = 0; i <= message.length; i++) {
+        setTimeout(() => {
+            setDisplayedText(message.slice(0, i)); // Set the displayed text progressively
+        }, i * typingSpeed); // Delay increases with each character
+    }
+};
 
 // Custom component to render Markdown messages with restricted image sizes
 const MarkdownMessage = ({ message }) => {
+    const [displayedText, setDisplayedText] = useState(""); // Holds the progressively typed text
+    const typingSpeed = 25; // Typing speed in milliseconds
+
+    const handleTypingEffect = () => {
+        typeTextWithDelay(message, setDisplayedText, typingSpeed);
+    };
+
+    // Start typing effect when the component mounts
+    useEffect(() => {
+        handleTypingEffect();
+    }, []);
     return (
         <div className="react-chatbot-kit-chat-bot-message">
             <ReactMarkdown
@@ -22,7 +43,7 @@ const MarkdownMessage = ({ message }) => {
                     ),
                 }}
             >
-                {message}
+                {displayedText}
             </ReactMarkdown>
         </div>
     );
